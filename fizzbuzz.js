@@ -13,6 +13,10 @@ function fizzbuzz(){
             outputString += "Buzz"
         }
 
+        if (i % 7 == 0){
+            outputString += "Bang"
+        }
+
         if (outputString == ""){
             outputString = String(i)
         }
