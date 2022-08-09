@@ -1,6 +1,6 @@
 function fizzbuzz(){
 
-    for (let i = 1; i<101; i++){
+    for (let i = 1; i<200; i++){
 
         var outputString = ""
 
@@ -19,6 +19,16 @@ function fizzbuzz(){
 
         if (i % 11 == 0){
             outputString = "Bong"
+        }
+
+        if (i % 13 == 0){
+            var indexOfFirstB = outputString.indexOf("B")
+            if (indexOfFirstB != -1){
+                outputString = outputString.slice(0, indexOfFirstB) + "Fezz" + outputString.slice(indexOfFirstB)
+            }
+            else{
+                outputString += "Fezz"
+            }
         }
 
         if (outputString == ""){
