@@ -11,6 +11,14 @@ function GetIntWithPrompt(prompt){
     return answer
 }
 
+function getStringWithPrompt(prompt){
+
+    console.log(prompt)
+    return readline.prompt()
+}
+
+
+
 
 function ReverseFizzBuzzOrder(string){
 
@@ -26,7 +34,10 @@ function AddFezzBeforeB(string){
                 + "Fezz" + string.slice(indexOfFirstB)
 }
 
-function fizzbuzz(maxNumber){
+function fizzbuzz(){
+
+    var maxNumber = GetIntWithPrompt("Please enter a max number: ")
+
 
     for (let i = 1; i<maxNumber + 1; i++){
 
@@ -71,6 +82,5 @@ function fizzbuzz(maxNumber){
 }
 
 
-var maxNumber = GetIntWithPrompt("Please enter a max number: ")
-getRules()
-fizzbuzz(maxNumber)
+
+fizzbuzz()
