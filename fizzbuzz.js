@@ -1,10 +1,16 @@
 const readline = require('readline-sync');
 
-// function GetIntWithPrompt(prompt){
+function GetIntWithPrompt(prompt){
 
-//     console.log(prompt)
-//     answer = readline.prompt()
-// }
+    console.log(prompt)
+    answer = parseInt(readline.prompt())
+    while (!(Number.isInteger(answer))){
+        console.log("That was not an integer, please try again")
+        answer = parseInt(readline.prompt())
+    }
+    return answer
+}
+
 
 function ReverseFizzBuzzOrder(string){
 
@@ -64,6 +70,7 @@ function fizzbuzz(maxNumber){
     }
 }
 
-console.log("Enter max number: ")
-var maxNumber = readline.prompt()
+
+var maxNumber = GetIntWithPrompt("Please enter a max number: ")
+getRules()
 fizzbuzz(maxNumber)
