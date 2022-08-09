@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
 
-function GetIntWithPrompt(prompt){
+function getIntWithPrompt(prompt){
 
     console.log(prompt)
     answer = parseInt(readline.prompt())
@@ -18,16 +18,38 @@ function getStringWithPrompt(prompt){
 }
 
 
+function getRules(allowedRules){
 
+    console.log("Enter a number to enable the rules associated with it. \n"
+                 + "The allowed rules are: \n" 
+                  + allowedRules.join(", ")
+                  )
 
-function ReverseFizzBuzzOrder(string){
-
-    var words = string.match(/.{4}/g);
-    return words.reverse().join("")
+    var rules = []
+    while (true){
+        var newRule = getStringWithPrompt("Enter a number, or press enter to exit: ")
+        if (newRule == ""){
+            break
+        }
+        newRule = parseInt(newRule)
+        if (allowedRules.includes(newRule)){
+            rules.push(newRule)
+        }
+        else {
+            console.log("That was not an allowed rule, try again")
+        }
+    }
+    return rules
 
 }
 
-function AddFezzBeforeB(string){
+function reverseFizzBuzzOrder(string){
+
+    var words = string.match(/.{4}/g);
+    return words.reverse().join("")
+}
+
+function addFezzBeforeB(string){
 
     var indexOfFirstB = string.indexOf("B")
     return string.slice(0, indexOfFirstB) 
@@ -36,42 +58,42 @@ function AddFezzBeforeB(string){
 
 function fizzbuzz(){
 
-    var maxNumber = GetIntWithPrompt("Please enter a max number: ")
-
+    var maxNumber = getIntWithPrompt("Please enter a max number: ")
+    var rules = getRules([3, 5, 7, 11, 13, 17])
+    console.log("Rules: ", rules)
 
     for (let i = 1; i<maxNumber + 1; i++){
 
         var outputString = "";
 
-
-        if (i % 3 == 0){
+        if (i % 3 == 0 && rules.includes(3)){
             outputString += "Fizz"
         }
 
-        if (i % 5 == 0){
+        if (i % 5 == 0 && rules.includes(5)){
             outputString += "Buzz"
         }
 
-        if (i % 7 == 0){
+        if (i % 7 == 0 && rules.includes(7)){
             outputString += "Bang"
         }
 
-        if (i % 11 == 0){
+        if (i % 11 == 0 && rules.includes(11)){
             outputString = "Bong"
         }
 
-        if (i % 13 == 0){
+        if (i % 13 == 0 && rules.includes(13)){
             
             if (outputString.includes("B")){
-                outputString = AddFezzBeforeB(outputString)
+                outputString = addFezzBeforeB(outputString)
             }
             else{
                 outputString += "fezz"
             }
         }
 
-        if (i % 17 == 0 && outputString != ""){
-            outputString = ReverseFizzBuzzOrder(outputString)
+        if (i % 17 == 0 && outputString != "" && rules.includes(17)){
+            outputString = reverseFizzBuzzOrder(outputString)
         }
 
         if (outputString == ""){
