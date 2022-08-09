@@ -1,8 +1,16 @@
+function ReverseFizzBuzzOrder(string){
+
+    var words = string.match(/.{4}/g);
+
+    return words.reverse().join()
+
+}
+
 function fizzbuzz(){
 
-    for (let i = 1; i<200; i++){
+    for (let i = 1; i<256; i++){
 
-        var outputString = ""
+        var outputString = "";
 
 
         if (i % 3 == 0){
@@ -24,11 +32,16 @@ function fizzbuzz(){
         if (i % 13 == 0){
             var indexOfFirstB = outputString.indexOf("B")
             if (indexOfFirstB != -1){
-                outputString = outputString.slice(0, indexOfFirstB) + "Fezz" + outputString.slice(indexOfFirstB)
+                outputString = outputString.slice(0, indexOfFirstB) 
+                + "Fezz" + outputString.slice(indexOfFirstB)
             }
             else{
                 outputString += "Fezz"
             }
+        }
+
+        if (i % 17 == 0 && outputString != ""){
+            outputString = ReverseFizzBuzzOrder(outputString)
         }
 
         if (outputString == ""){
