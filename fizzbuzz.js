@@ -17,6 +17,10 @@ function fizzbuzz(){
             outputString += "Bang"
         }
 
+        if (i % 11 == 0){
+            outputString = "Bong"
+        }
+
         if (outputString == ""){
             outputString = String(i)
         }
