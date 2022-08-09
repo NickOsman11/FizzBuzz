@@ -1,3 +1,11 @@
+const readline = require('readline-sync');
+
+// function GetIntWithPrompt(prompt){
+
+//     console.log(prompt)
+//     answer = readline.prompt()
+// }
+
 function ReverseFizzBuzzOrder(string){
 
     var words = string.match(/.{4}/g);
@@ -12,9 +20,9 @@ function AddFezzBeforeB(string){
                 + "Fezz" + string.slice(indexOfFirstB)
 }
 
-function fizzbuzz(){
+function fizzbuzz(maxNumber){
 
-    for (let i = 1; i<256; i++){
+    for (let i = 1; i<maxNumber + 1; i++){
 
         var outputString = "";
 
@@ -56,4 +64,6 @@ function fizzbuzz(){
     }
 }
 
-fizzbuzz()
+console.log("Enter max number: ")
+var maxNumber = readline.prompt()
+fizzbuzz(maxNumber)
