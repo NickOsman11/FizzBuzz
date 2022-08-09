@@ -1,18 +1,22 @@
 function fizzbuzz(){
 
     for (let i = 1; i<101; i++){
-        if (i % 3 == 0 && i % 5 == 0){
-            console.log("fizzbuzz")
+
+        var outputString = ""
+
+
+        if (i % 3 == 0){
+            outputString += "Fizz"
         }
-        else if (i % 3 == 0){
-            console.log("fizz")
+
+        if (i % 5 == 0){
+            outputString += "Buzz"
         }
-        else if (i % 5 == 0){
-            console.log("buzz")
+
+        if (outputString == ""){
+            outputString = String(i)
         }
-        else {
-            console.log(i)
-        }
+        console.log(outputString)
     }
 }
 
